@@ -1,5 +1,5 @@
 {
-  "name": "JWT WOrk",
+  "name": "JWTWork",
   "version": "1.0.0",
   "description": "Simple Node Rest API to generate a JWT",
   "main": "app.js",
@@ -15,6 +15,7 @@
     "moment": "^2.16.0",
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
-    "passport-jwt": "^2.2.1"
+    "passport-jwt": "^2.2.1",
+    "trsa": "^1.0.1"
   }
 }
