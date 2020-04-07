@@ -11,7 +11,7 @@ const jwtParams = {
     JWT_TOKEN_EXPIRY: 30   /** Set to expiry after 30 seconds */
 };
 
-// Issues the token after validating the username and password passed in the body.
+// Create a JWT (and store it in a table) after validating the user exists
 const auth = function (req, res) {
     if (req.body) {
         // Body has the username & password - get the values from the body ands pass them to the checkCredntials function

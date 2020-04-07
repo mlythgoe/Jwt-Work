@@ -1,6 +1,14 @@
-const rsa = require('trsa')
+const rsa = require('trsa');
 
 const keyPair = rsa.generateKeyPair({bits:512});
+
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
+// THIS IS JUST SOME TEST CODE AND NOT PART OF THE OVERALL APP
 
 // The user presents herself by providing a username or email. OR SMARTCARD ID!!!!!!!!!!!
 // The service presents a cryptographic challenge.
@@ -38,8 +46,12 @@ const keyPair = rsa.generateKeyPair({bits:512});
 const publicKey = keyPair.publicKey;
 const privateKey = keyPair.privateKey;
 
+console.log("Public Key: " + publicKey);
+console.log("Private Key: " + privateKey);
+
+
 // generate challenge on server and pass back to client - as is
-const challenge = "1234567890abcdefghijklmnop";
+const challenge = "BjoUnwrcTQrUKCDbhwDPIsbtFRmuPI";
 
 // create a signature on the client and send it to server
 const signature = rsa.sign(challenge, privateKey);
