@@ -1,4 +1,5 @@
 const rsa = require('trsa')
+
 const keyPair = rsa.generateKeyPair({bits:512});
 
 // The user presents herself by providing a username or email. OR SMARTCARD ID!!!!!!!!!!!
@@ -7,8 +8,8 @@ const keyPair = rsa.generateKeyPair({bits:512});
 // After signing the challenge, the user sends the signed challenge back to the server.
 // The server verifies the response with the user’s corresponding public key, and if successful, gives the user access to the account.
 
-// const originalMessage = 'Hallo, this is Bob. I have something to tell you.'
 // // encryption
+// const originalMessage = 'Hallo, this is Bob. I have something to tell you.'
 // const encryptedMessage = rsa.encrypt(originalMessage, keyPair.publicKey);
 // const decryptedMessage = rsa.decrypt(encryptedMessage, keyPair.privateKey);
 //
@@ -36,7 +37,8 @@ const keyPair = rsa.generateKeyPair({bits:512});
 
 const publicKey = keyPair.publicKey;
 const privateKey = keyPair.privateKey;
-// generate on server and pass back to client
+
+// generate challenge on server and pass back to client - as is
 const challenge = "1234567890abcdefghijklmnop";
 
 // create a signature on the client and send it to server
@@ -52,4 +54,4 @@ if ( isSigned) {
     console.log("Signature is NOT valid")
 }
 
-console.log("WAIT");
+console.log("DONE");
