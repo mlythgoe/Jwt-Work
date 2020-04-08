@@ -18,20 +18,30 @@ const rsa = require('trsa');
 //     "signedChallenge": "4a5a24714e63a0ff3cd404b9443ff48c6b88f1a574aed48a35f422e416add070e48a73308f8271618710caf325aa78361f79a016d83ba4d97f13bc46c2d53764"
 // }
 
+// Get the private key by issuing a GET to http://localhost:3000/privatekey?smartcardId=22222222
 const privateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
-    "MIIBOgIBAAJBAMFxWMYr8IGrfv0Y+IN+hu5qF9D1mlSp8ZlP1c+aub3baAzH7upa\n" +
-    "XmAqHB/XZxkG6VKuPNDFqS99sx9RLKH7WmcCAwEAAQJBAIRTZBXT8ubRCMJb9YwF\n" +
-    "3oly263ehF8MDbABc9JbFlovbUsw2lwuRlZ61Xa3KRa8xygqE+VKe4XgdJFhuyoo\n" +
-    "e5kCIQD3y1yf6m8epDrqAvMobwxn3Fh52PibC5M/m4cDWktMuwIhAMfZOkJnCcpj\n" +
-    "Xbg3iE3GK9UJ/dJ1P8nQaHPzIMokCkRFAiBdYfxEH9tEluvE6NuuLztjoLyPHt+B\n" +
-    "vrj9TaVx9ANQpQIgY7l7P+1ozkx9VNKpOp4b+0fsF9wYQ52yscFt6FDJqr0CICos\n" +
-    "v8cEM1NpcJHSOSpDvJQJIZKPb6esZKYHsCRlIEa7\n" +
+    "MIIBPAIBAAJBAJYyqmNzrol8m1FbB28xNZpmUtXNqPdY7DpC61Tw8CxdhT+ik+Df\n" +
+    "sRTc3QY0Dm83qE75GB4ReMnXqO1cFNDTwYECAwEAAQJALlz5Z7Wf3OTP9O8KfnJM\n" +
+    "P5ryWvke/Ss/0EQz7IZrPOYwV/DTfgHOCzLjedHoLTeL9YPt22XNlYcKFp3TgEDI\n" +
+    "AQIhAMaUbAlwLqrqQxi/tClsVokl/HDccRy//xhDlXHxz1mhAiEAwaDYzbnk1LM0\n" +
+    "4G9ulVMPxssKob9dlQRyf7xhC2viG+ECIQDBY6oTRv0r1hih8ZAzBx7/Uc8W2pgN\n" +
+    "t61mo+rWnPeiAQIhALpQ4g2jsLOS9XB5CTmawXWSbtqRX6VCsEKFrAPnfZ1BAiEA\n" +
+    "njJAX0bOp2UHTsIKOCk+EbTvs76JHS0cmbgayIhDNmI=\n" +
     "-----END RSA PRIVATE KEY-----";
 
-// generate challenge on server and pass back to client - as is
-const challenge = "fffFGhIOOHknPjKdgSPveDojbhhOzt";
+// generate challenge on server by issuing a POST to http://localhost:3000/authenticate with a body of
+// {
+//     "smartcardId": "22222222"
+// }
+// and use the returned challenge in the string below - as is
+const challenge = "rYZTNGZgndZuJtOXQiAVfsHOTSyrQK";
 
-// create a signature on the client and send it to server
+// create a signature this will be used by the client to send a POST to http://localhost:3000/signedChallenge with
+// a body of
+// {
+// 	   "smartcardId": "22222222",
+//     "signedChallenge": "1282015f6dc04b849b19912d47af0a7d29ca90e5ea4e682e82eb25a23e4f79034a167314ab836e5485994b222c248e037d11a26dd23f7420dc9944a2b80eac88"
+// }
 const signature = rsa.sign(challenge, privateKey);
 
 console.log("Signature : " + signature);

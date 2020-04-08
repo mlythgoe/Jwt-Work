@@ -4,12 +4,10 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const rsa = require('trsa')
-const jwtAuth = require(__dirname + '/tokens/jwtauth');
-const tokenStore = require(__dirname + '/tokens/tokenstore');
+const rsa = require('trsa');
 const jwt = require("jwt-simple");
 const moment = require('moment');
-
+const tokenStore = require(__dirname + '/tokens/tokenstore');
 const users = require(__dirname + '/userdata/users');
 
 // Express app setup
@@ -17,7 +15,6 @@ const app = express();
 app.use(bodyParser.json());
 
 const router = express.Router();
-const jwtAuthAuth = jwtAuth.auth;
 
 // Test function to get the private key matched to a smartcard id
 router.get('/privatekey', function (req, res) {
@@ -49,7 +46,7 @@ router.post('/signedChallenge', function (req, res) {
     if ( isSigned ) {
 
         const jwtParams = {
-            JWT_TOKEN_SECRET: 'token-secret',
+            JWT_TOKEN_SECRET: 'tokensecret',
             JWT_TOKEN_ISSUER: 'NHS Digital',
             JWT_HEADER: 'authorization',
             JWT_TOKEN_EXPIRY: 30   /** Set to expiry after 30 seconds */

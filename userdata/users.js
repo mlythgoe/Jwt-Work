@@ -38,11 +38,9 @@ const createChallenge = function (smartCardId) {
 
 // Returns a user if the smartcardId matches an existing user
 const checkCredentials = function (smartcardId) {
-    const user = users.find(function (u) {
+    return users.find(function (u) {
         return u.smartcardId === smartcardId;
-    });
-
-    return user
+    })
 };
 
 // Preconfigured static user data
