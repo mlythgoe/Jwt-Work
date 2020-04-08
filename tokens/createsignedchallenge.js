@@ -10,13 +10,16 @@ const rsa = require('trsa');
 // {
 //     "smartcardId": "22222222"
 // }
+//
 // Once you have the signature and challenge, paste them into the string values below.
 // The signature will be printed out and this can be used in the signed challenge call
+//
 // e.g POST - http://localhost:3000/authenticate - with JSON body of:
 // {
 // 	"smartcardId": "22222222",
 //     "signedChallenge": "4a5a24714e63a0ff3cd404b9443ff48c6b88f1a574aed48a35f422e416add070e48a73308f8271618710caf325aa78361f79a016d83ba4d97f13bc46c2d53764"
 // }
+//
 
 // Get the private key by issuing a GET to http://localhost:3000/privatekey?smartcardId=22222222
 const privateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +

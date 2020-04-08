@@ -6,7 +6,7 @@ const tokenStore = require(__dirname + '/tokenstore');
 
 const auth = function (req, res, next) {
 
-    // Token sent by the client HTTP header X-ACME-Token
+    // Token sent by the client HTTP header authorization
     const token = req.headers[jwtAuth.params.JWT_HEADER];
     console.log(token);
     if (token === undefined) {

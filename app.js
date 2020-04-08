@@ -1,7 +1,3 @@
-// JWT Token Authentication
-// Part of the course on "REST API Design Development & Management"
-// http://www.acloudfan.com
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const rsa = require('trsa');
