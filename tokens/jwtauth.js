@@ -1,15 +1,10 @@
 const jwt = require("jwt-simple");
 const moment = require('moment');
+const jwtparams = require(__dirname + '/tokens/jwtparams');
 const users = require(__dirname + '/../userdata/users');
 const tokenStore = require(__dirname + '/tokenstore');
 
-
-const jwtParams = {
-    JWT_TOKEN_SECRET: 'token-secret',
-    JWT_TOKEN_ISSUER: 'NHS Digital',
-    JWT_HEADER: 'authorization',
-    JWT_TOKEN_EXPIRY: 30   /** Set to expiry after 30 seconds */
-};
+const jwtParams = jwtparams.jwtParams;
 
 // Create a JWT (and store it in a table) after validating the user exists
 const auth = function (req, res) {
@@ -54,4 +49,3 @@ const auth = function (req, res) {
 };
 
 exports.auth = auth;
-exports.params = jwtParams;

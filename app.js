@@ -7,8 +7,9 @@ const bodyParser = require('body-parser');
 const rsa = require('trsa');
 const jwt = require("jwt-simple");
 const moment = require('moment');
-const tokenStore = require(__dirname + '/tokens/tokenstore');
+const jwtparams = require(__dirname + '/tokens/jwtparams');
 const users = require(__dirname + '/userdata/users');
+const tokenStore = require(__dirname + '/tokens/tokenstore');
 
 // Express app setup
 const app = express();
@@ -45,12 +46,7 @@ router.post('/signedChallenge', function (req, res) {
 
     if ( isSigned ) {
 
-        const jwtParams = {
-            JWT_TOKEN_SECRET: 'tokensecret',
-            JWT_TOKEN_ISSUER: 'NHS Digital',
-            JWT_HEADER: 'authorization',
-            JWT_TOKEN_EXPIRY: 30   /** Set to expiry after 30 seconds */
-        };
+        const jwtParams = jwtparams.jwtParams;
 
         const expires = moment().add(jwtParams.JWT_TOKEN_EXPIRY, 'seconds').valueOf();
         // Create the PAYLOAD

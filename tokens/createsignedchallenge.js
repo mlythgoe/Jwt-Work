@@ -20,13 +20,13 @@ const rsa = require('trsa');
 
 // Get the private key by issuing a GET to http://localhost:3000/privatekey?smartcardId=22222222
 const privateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
-    "MIIBPAIBAAJBAK8RT73YW2Ee+bDjIBTvw/mn35hJC+y5/6WbpxnLP54CHul/Wj8n\n" +
-    "u/f4rFyHPYI11Szxru+Wi4haU81wrTDbxUsCAwEAAQJARGEgomhlmNO+d2bfWw4j\n" +
-    "n9oALb0qWTZ1MjxP0nVezdokcCXkx9eAPcz2CZPOjUbcyOe16eI2eEUFZH3V9Kql\n" +
-    "YQIhAOK+V/ee5Pg7SR82PohDdl+mIeullSigUEbCKyhdNGlpAiEAxagKUE6mz8PV\n" +
-    "k3HU246o9Os8BesYw7/H/TpIb0KTjpMCIQDS4IIBmvaKYuDrtVBM/Kkf5euQNIxX\n" +
-    "n1lppXXr8VsoWQIhAKVDFzyGRps41n5tktfws/v0Iz+fjhk9ZO2pqZ69P7rZAiEA\n" +
-    "0HvIh/m5KZFQvGK2y2Juw/Xl+Gw4kKNIJJO/EOYUBoQ=\n" +
+    "MIIBOQIBAAJBAL2oFoTea55JwcONfBvIba9XA8MayClaggC3nXVMqlyY44e5AmcC\n" +
+    "qbdcxrfDkbMORdpiGYqesRs6zTw4kpyRCC8CAwEAAQJAJmA1tkr/Qbcw8u3VGBYV\n" +
+    "Q656v2bS67M5rQV6YfrSWgvohiWFmKAY5lb1rvP2iIAtansQFlD4rnhbfsJ6yG/F\n" +
+    "kQIhAOCKTMu36c2jjhuaHFKb9bf0UyP1Bqbt8nGv4Kr0QbR5AiEA2DqZN8gQZOGs\n" +
+    "9kBjq6art0GIx842qq/qv+lG3h9e5+cCIClxXTs8dqq9xTzS9OdKYc/SCIZacx/c\n" +
+    "SyMwkwb6jiYBAiByoraCbU3Lvh2NvFtbMJTPJi5XB8vRuEwzjIBm2KjfNwIgGX3Z\n" +
+    "YGqMflvdiRQMuVAsvmjzoh0gq6XjAny8JKXtsx0=\n" +
     "-----END RSA PRIVATE KEY-----";
 
 // generate challenge on server by issuing a POST to http://localhost:3000/authenticate with a body of
@@ -34,7 +34,7 @@ const privateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
 //     "smartcardId": "22222222"
 // }
 // and use the returned challenge in the string below - as is
-const challenge = "VocaxEEiGCbZyJqHoyKwPneAIrYIeF";
+const challenge = "vKuZGxYmtpqSoizxjFXlKgUBVprXsq";
 
 // create a signature this will be used by the client to send a POST to http://localhost:3000/signedChallenge with
 // a body of
